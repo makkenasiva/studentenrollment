@@ -1,5 +1,6 @@
 #student_info
-CREATE TABLE Student (
+create table Student(
+
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(50),
     middle_name VARCHAR(50),
@@ -11,8 +12,6 @@ CREATE TABLE Student (
     email VARCHAR(100),
     address VARCHAR(200),
     grade INT,
-    username VARCHAR(50),
-    PRIMARY KEY (id)
+    username VARCHAR(50)
 );
-
 
