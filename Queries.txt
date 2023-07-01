@@ -1,17 +1,15 @@
-# student table updated __manoj
-create table Student(
-   id INT NOT NULL AUTO_INCREMENT,
-   primary key (id),
-   first_name VARCHAR(50),
-   middle_name VARCHAR(50),
-   last_name VARCHAR(50),
-   parent_name VARCHAR(100),
-   date_of_birth DATE,
-   gender VARCHAR(10),
-   mobile_number VARCHAR(15),
-   email VARCHAR(100),
-   address VARCHAR(200),
-   grade INT,
-   username VARCHAR(50)
+create table Student_info(   
+   Id INT UNSIGNED NOT NULL AUTO_INCREMENT,      
+   PRIMARY KEY (id),     
+   first_name VARCHAR(50),     
+   middle_name VARCHAR(50),     
+   last_name VARCHAR(50),     
+   parent_name VARCHAR(100),     
+   date_of_birth DATE,     
+   gender VARCHAR(10),     
+   mobile_number VARCHAR(15),     
+   email VARCHAR(100),     
+   address VARCHAR(200),     
+   grade INT,     
+   username VARCHAR(50) 
 )
-
