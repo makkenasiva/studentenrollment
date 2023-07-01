@@ -1,7 +1,7 @@
-#student_info
-create table Student_info(
-   Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-   PRIMARY KEY (id),
+# student table updated __manoj
+create table Student(
+   id INT NOT NULL AUTO_INCREMENT,
+   primary key (id),
    first_name VARCHAR(50),
    middle_name VARCHAR(50),
    last_name VARCHAR(50),
