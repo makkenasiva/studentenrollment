@@ -31,3 +31,24 @@ CREATE TABLE users (
   FOREIGN KEY (institution_id) REFERENCES institutions(id)
 );
 
+#new tables for parent and sibling
+CREATE TABLE Parents (
+   id INT NOT NULL AUTO_INCREMENT,
+   PRIMARY KEY (id),
+   mother_Name VARCHAR(30) NOT NULL,
+   father_Name VARCHAR(30) NOT NULL,
+   contact_Number VARCHAR(30) NOT NULL,
+student_id int,
+FOREIGN KEY (student_id) REFERENCES student(id)
+);
+
+CREATE TABLE Siblings (
+   id INT NOT NULL AUTO_INCREMENT,
+   PRIMARY KEY (id),
+   first_Name VARCHAR(30) NOT NULL,
+   middle_Name VARCHAR(30) NOT NULL,
+   last_Name VARCHAR(30) NOT NULL,
+   contact_Number VARCHAR(30) NOT NULL,
+student_id int,
+FOREIGN KEY (student_id) REFERENCES student(id)
+);
