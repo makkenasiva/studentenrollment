@@ -13,3 +13,17 @@ create table Student_info(
    grade INT,     
    username VARCHAR(50) 
 )
+CREATE TABLE institutions (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255),
+  address VARCHAR(255),
+  phone VARCHAR(20)
+)
+CREATE TABLE users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255),
+  email VARCHAR(255),
+  institution_id INT,
+  FOREIGN KEY (institution_id) REFERENCES institutions(id)
+)
+
