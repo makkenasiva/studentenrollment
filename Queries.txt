@@ -52,3 +52,25 @@ CREATE TABLE Siblings (
 student_id int,
 FOREIGN KEY (student_id) REFERENCES student(id)
 );
+
+CREATE TABLE States (
+    id INT,
+    PRIMARY KEY (id),
+    statename VARCHAR(30)
+);
+
+CREATE TABLE city (
+    cityid INT,
+    PRIMARY KEY (id),
+    cityname VARCHAR(255),
+    stateid INT
+    FOREIGN KEY (stateid) REFERENCES States(id)
+);
+
+CREATE TABLE district (
+    districtid INT,
+    PRIMARY KEY (id),
+    districtname VARCHAR(255),
+    cityid INT
+    FOREIGN KEY (cityid) REFERENCES city(id)
+);
