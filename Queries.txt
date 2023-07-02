@@ -52,3 +52,15 @@ CREATE TABLE Siblings (
 student_id int,
 FOREIGN KEY (student_id) REFERENCES student(id)
 );
+
+CREATE TABLE AcademicInfo(
+   id INT NOT NULL AUTO_INCREMENT,
+   PRIMARY KEY (id),      
+   SchoolName VARCHAR(100),
+   StateName VARCHAR(100),
+   DistrictName VARCHAR(100),
+   CityName VARCHAR(100),
+   EntryLevel VARCHAR(100),
+   Transfer VARCHAR(100)
+);
+
