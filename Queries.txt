@@ -60,7 +60,7 @@ CREATE TABLE States (
 );
 
 CREATE TABLE city (
-    cityid INT,
+    id INT,
     PRIMARY KEY (id),
     cityname VARCHAR(255),
     stateid INT
@@ -68,7 +68,7 @@ CREATE TABLE city (
 );
 
 CREATE TABLE district (
-    districtid INT,
+    id INT,
     PRIMARY KEY (id),
     districtname VARCHAR(255),
     cityid INT
