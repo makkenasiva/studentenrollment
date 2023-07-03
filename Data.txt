@@ -1,3 +1,211 @@
+
+INSERT INTO city (id, cityname, stateid)
+VALUES
+    (1, 'Birmingham', 1),
+    (2, 'Montgomery', 1),
+    (3, 'Anchorage', 2),
+    (4, 'Fairbanks', 2),
+    (5, 'Phoenix', 3),
+    (6, 'Tucson', 3),
+    (7, 'Little Rock', 4),
+    (8, 'Fort Smith', 4),
+    (9, 'Los Angeles', 5),
+    (10, 'San Francisco', 5),
+    (11, 'Denver', 6),
+    (12, 'Colorado Springs', 6),
+    (13, 'Hartford', 7),
+    (14, 'New Haven', 7),
+    (15, 'Wilmington', 8),
+    (16, 'Dover', 8),
+    (17, 'Jacksonville', 9),
+    (18, 'Miami', 9),
+    (19, 'Atlanta', 10),
+    (20, 'Savannah', 10),
+    (21, 'Honolulu', 11),
+    (22, 'Hilo', 11),
+    (23, 'Boise', 12),
+    (24, 'Nampa', 12),
+    (25, 'Chicago', 13),
+    (26, 'Springfield', 13),
+    (27, 'Indianapolis', 14),
+    (28, 'Fort Wayne', 14),
+    (29, 'Des Moines', 15),
+    (30, 'Cedar Rapids', 15),
+    (31, 'Wichita', 16),
+    (32, 'Overland Park', 16),
+    (33, 'Louisville', 17),
+    (34, 'Lexington', 17),
+    (35, 'New Orleans', 18),
+    (36, 'Baton Rouge', 18),
+    (37, 'Portland', 19),
+    (38, 'Lewiston', 19),
+    (39, 'Baltimore', 20),
+    (40, 'Annapolis', 20),
+    (41, 'Boston', 21),
+    (42, 'Worcester', 21),
+    (43, 'Detroit', 22),
+    (44, 'Lansing', 22),
+    (45, 'Minneapolis', 23),
+    (46, 'St. Paul', 23),
+    (47, 'Jackson', 24),
+    (48, 'Gulfport', 24),
+    (49, 'St. Louis', 25),
+    (50, 'Kansas City', 25),
+    (51, 'Bozeman', 26),
+    (52, 'Billings', 26),
+    (53, 'Omaha', 27),
+    (54, 'Lincoln', 27),
+    (55, 'Las Vegas', 28),
+    (56, 'Reno', 28),
+    (57, 'Manchester', 29),
+    (58, 'Portsmouth', 29),
+    (59, 'Newark', 30),
+    (60, 'New Brunswick', 30),
+    (61, 'Albuquerque', 31),
+    (62, 'Santa Fe', 31),
+    (63, 'New York City', 32),
+    (64, 'Buffalo', 32),
+    (65, 'Charlotte', 33),
+    (66, 'Raleigh', 33),
+    (67, 'Bismarck', 34),
+    (68, 'Fargo', 34),
+    (69, 'Columbus', 35),
+    (70, 'Cleveland', 35),
+    (71, 'Oklahoma City', 36),
+    (72, 'Tulsa', 36),
+    (73, 'Portland', 37),
+    (74, 'Salem', 37),
+    (75, 'Philadelphia', 38),
+    (76, 'Pittsburgh', 38),
+    (77, 'Providence', 39),
+    (78, 'Newport', 39),
+    (79, 'Charleston', 40),
+    (80, 'Columbia', 40),
+    (81, 'Sioux Falls', 41),
+    (82, 'Rapid City', 41),
+    (83, 'Nashville', 42),
+    (84, 'Memphis', 42),
+    (85, 'Houston', 43),
+    (86, 'Austin', 43),
+    (87, 'Salt Lake City', 44),
+    (88, 'Provo', 44),
+    (89, 'Burlington', 45),
+    (90, 'Rutland', 45),
+    (91, 'Fairfax', 46),
+    (92, 'Arlington', 46),
+    (93, 'Seattle', 47),
+    (94, 'Spokane', 47),
+    (95, 'Charleston', 48),
+    (96, 'Martinsburg', 48),
+    (97, 'Milwaukee', 49),
+    (98, 'Madison', 49),
+    (99, 'Cheyenne', 50),
+    (100, 'Casper', 50);
+
+INSERT INTO district (id, districtname, cityid)
+VALUES
+    (1, 'Jefferson County', 1), -- Birmingham, Alabama
+    (2, 'Shelby County', 1), -- Birmingham, Alabama
+    (3, 'Montgomery County', 2), -- Montgomery, Alabama
+    (4, 'Autauga County', 2), -- Montgomery, Alabama
+    (5, 'Anchorage Borough', 3), -- Anchorage, Alaska
+    (6, 'Fairbanks North Star Borough', 3), -- Anchorage, Alaska
+    (7, 'Fairbanks North Star Borough', 4), -- Fairbanks, Alaska
+    (8, 'Southeast Fairbanks Census Area', 4), -- Fairbanks, Alaska
+    (9, 'Maricopa County', 5), -- Phoenix, Arizona
+    (10, 'Pima County', 5), -- Phoenix, Arizona
+    (11, 'Pima County', 6), -- Tucson, Arizona
+    (12, 'Cochise County', 6), -- Tucson, Arizona
+    (13, 'Pulaski County', 7), -- Little Rock, Arkansas
+    (14, 'Benton County', 7), -- Little Rock, Arkansas
+    (15, 'Sebastian County', 8), -- Fort Smith, Arkansas
+    (16, 'Crawford County', 8), -- Fort Smith, Arkansas
+    (17, 'Los Angeles County', 9), -- Los Angeles, California
+    (18, 'San Francisco County', 9), -- Los Angeles, California
+    (19, 'San Francisco County', 10), -- San Francisco, California
+    (20, 'Alameda County', 10), -- San Francisco, California
+    (21, 'Denver County', 11), -- Denver, Colorado
+    (22, 'El Paso County', 11), -- Denver, Colorado
+    (23, 'El Paso County', 12), -- Colorado Springs, Colorado
+    (24, 'Teller County', 12), -- Colorado Springs, Colorado
+    (25, 'Hartford County', 13), -- Hartford, Connecticut
+    (26, 'New Haven County', 13), -- Hartford, Connecticut
+    (27, 'New Haven County', 14), -- New Haven, Connecticut
+    (28, 'Fairfield County', 14), -- New Haven, Connecticut
+    (29, 'New Castle County', 15), -- Wilmington, Delaware
+    (30, 'Kent County', 15), -- Wilmington, Delaware
+    (31, 'Kent County', 16), -- Dover, Delaware
+    (32, 'Sussex County', 16), -- Dover, Delaware
+    (33, 'Duval County', 17), -- Jacksonville, Florida
+    (34, 'Miami-Dade County', 17), -- Jacksonville, Florida
+    (35, 'Miami-Dade County', 18), -- Miami, Florida
+    (36, 'Broward County', 18), -- Miami, Florida
+    (37, 'Fulton County', 19), -- Atlanta, Georgia
+    (38, 'Chatham County', 19), -- Atlanta, Georgia
+    (39, 'Chatham County', 20), -- Savannah, Georgia
+    (40, 'Bryan County', 20), -- Savannah, Georgia
+    (41, 'Honolulu County', 21), -- Honolulu, Hawaii
+    (42, 'Hawaii County', 21), -- Honolulu, Hawaii
+    (43, 'Hawaii County', 22), -- Hilo, Hawaii
+    (44, 'Maui County', 22), -- Hilo, Hawaii
+    (45, 'Ada County', 23), -- Boise, Idaho
+    (46, 'Canyon County', 23), -- Boise, Idaho
+    (47, 'Ingham County', 24), -- Lansing, Michigan
+    (48, 'Clinton County', 24), -- Lansing, Michigan
+    (49, 'Hennepin County', 25), -- Minneapolis, Minnesota
+    (50, 'Ramsey County', 25), -- Minneapolis, Minnesota
+    (51, 'Hinds County', 26), -- Jackson, Mississippi
+    (52, 'Rankin County', 26), -- Jackson, Mississippi
+    (53, 'Jackson County', 27), -- Kansas City, Missouri
+    (54, 'Clay County', 27), -- Kansas City, Missouri
+    (55, 'Yellowstone County', 28), -- Billings, Montana
+    (56, 'Missoula County', 28), -- Billings, Montana
+    (57, 'Douglas County', 29), -- Omaha, Nebraska
+    (58, 'Sarpy County', 29), -- Omaha, Nebraska
+    (59, 'Lancaster County', 30), -- Lincoln, Nebraska
+    (60, 'Seward County', 30), -- Lincoln, Nebraska
+    (61, 'Clark County', 31), -- Las Vegas, Nevada
+    (62, 'Washoe County', 31), -- Las Vegas, Nevada
+    (63, 'Washoe County', 32), -- Reno, Nevada
+    (64, 'Carson City', 32), -- Reno, Nevada
+    (65, 'Hillsborough County', 33), -- Manchester, New Hampshire
+    (66, 'Rockingham County', 33), -- Manchester, New Hampshire
+    (67, 'Essex County', 34), -- Newark, New Jersey
+    (68, 'Middlesex County', 34), -- Newark, New Jersey
+    (69, 'Bernalillo County', 35), -- Albuquerque, New Mexico
+    (70, 'Santa Fe County', 35), -- Albuquerque, New Mexico
+    (71, 'Bronx County', 36), -- New York City, New York
+    (72, 'Queens County', 36), -- New York City, New York
+    (73, 'Queens County', 37), -- Rochester, New York
+    (74, 'Monroe County', 37), -- Rochester, New York
+    (75, 'Mecklenburg County', 38), -- Charlotte, North Carolina
+    (76, 'Wake County', 38), -- Charlotte, North Carolina
+    (77, 'Burleigh County', 39), -- Bismarck, North Dakota
+    (78, 'Morton County', 39), -- Bismarck, North Dakota
+    (79, 'Franklin County', 40), -- Columbus, Ohio
+    (80, 'Cuyahoga County', 40), -- Columbus, Ohio
+    (81, 'Cuyahoga County', 41), -- Cleveland, Ohio
+    (82, 'Summit County', 41), -- Cleveland, Ohio
+    (83, 'Oklahoma County', 42), -- Oklahoma City, Oklahoma
+    (84, 'Cleveland County', 42), -- Oklahoma City, Oklahoma
+    (85, 'Marion County', 43), -- Portland, Oregon
+    (86, 'Multnomah County', 43), -- Portland, Oregon
+    (87, 'Philadelphia County', 44), -- Philadelphia, Pennsylvania
+    (88, 'Allegheny County', 44), -- Philadelphia, Pennsylvania
+    (89, 'Providence County', 45), -- Providence, Rhode Island
+    (90, 'Kent County', 45), -- Providence, Rhode Island
+    (91, 'Charleston County', 46), -- Charleston, South Carolina
+    (92, 'Berkeley County', 46), -- Charleston, South Carolina
+    (93, 'Minnehaha County', 47), -- Sioux Falls, South Dakota
+    (94, 'Pennington County', 47), -- Sioux Falls, South Dakota
+    (95, 'Davidson County', 48), -- Nashville, Tennessee
+    (96, 'Shelby County', 48), -- Nashville, Tennessee
+    (97, 'Shelby County', 49), -- Memphis, Tennessee
+    (98, 'Tipton County', 49), -- Memphis, Tennessee
+    (99, 'Harris County', 50), -- Houston, Texas
+    (100, 'Travis County', 50); -- Houston, Texas
+
+
 INSERT INTO states (id, statename) VALUES
   (1, 'Alabama'),
   (2, 'Alaska'),
@@ -49,3 +257,4 @@ INSERT INTO states (id, statename) VALUES
   (48, 'West Virginia'),
   (49, 'Wisconsin'),
   (50, 'Wyoming');
+
