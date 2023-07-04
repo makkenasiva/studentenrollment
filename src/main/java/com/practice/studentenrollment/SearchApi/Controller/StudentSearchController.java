@@ -42,13 +42,13 @@ public class StudentSearchController {
 
     @GetMapping("/search")
     public ResponseEntity<?> getStudentByFirstName(@RequestParam(value = "firstName", required = false) String firstName) {
-        if (firstName == null || firstName.isEmpty()) {
+        if (firstName == null || firstName.trim().isEmpty()) {
             // First name not provided
             String errorMessage = "Invalid: First name is required. Please try again.";
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
         }
 
-        List<StudentSearch> students = studentSearchService.getStudentsByFirstName(firstName);
+        List<StudentSearch> students = studentSearchService.getStudentsByFirstNameIgnoreCase(firstName.trim());
 
         if (students.isEmpty()) {
             // First name not found in the table
