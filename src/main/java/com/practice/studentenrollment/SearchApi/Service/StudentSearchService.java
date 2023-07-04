@@ -14,37 +14,30 @@ public class StudentSearchService {
     private StudentSearchRepository studentSearchRepository;
 
     public StudentSearch addStudents(StudentSearch studentSearch) {
-        // Add logic to save the student record
         return studentSearchRepository.save(studentSearch);
     }
 
     public List<StudentSearch> studentSearchList() {
-        // Add logic to retrieve all student records
         return studentSearchRepository.findAll();
     }
 
-    public Optional<StudentSearch> getStudentByid(Integer id) {
-        // Add logic to retrieve a student record by ID
+    public Optional<StudentSearch> getStudentById(Integer id) {
         return studentSearchRepository.findById(id);
     }
 
     public List<StudentSearch> getStudentsByFirstNameIgnoreCase(String firstName) {
-        // Add logic to retrieve student records by first name (case-insensitive)
         return studentSearchRepository.findByFirstNameIgnoreCase(firstName);
     }
 
-    public List<StudentSearch> getStudent(String lastName) {
-        // Add logic to retrieve student records by last name (case-insensitive)
+    public List<StudentSearch> getStudentsByLastNameIgnoreCase(String lastName) {
         return studentSearchRepository.findByLastNameIgnoreCase(lastName);
     }
 
-    public List<StudentSearch> studentByUserName(String userName) {
-        // Add logic to retrieve student records by username (case-insensitive)
+    public List<StudentSearch> getStudentsByUsernameIgnoreCase(String userName) {
         return studentSearchRepository.findByUserNameIgnoreCase(userName);
     }
 
-    public List<StudentSearch> studentByname(String name) {
-        // Add logic to retrieve student records by name (case-insensitive)
+    public List<StudentSearch> getStudentsByNameIgnoreCase(String name) {
         return studentSearchRepository.findByNameIgnoreCase(name);
     }
 }

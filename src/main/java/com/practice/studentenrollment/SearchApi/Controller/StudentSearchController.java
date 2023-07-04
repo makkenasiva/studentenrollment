@@ -16,10 +16,6 @@ public class StudentSearchController {
     @Autowired
     private StudentSearchService studentSearchService;
 
-    @PostMapping("/add")
-    public StudentSearch addStudents(@RequestBody StudentSearch studentSearch) {
-        return studentSearchService.addStudents(studentSearch);
-    }
 
     @GetMapping("/all")
     public List<StudentSearch> getStudentSearch() {
@@ -27,8 +23,8 @@ public class StudentSearchController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getStudentByID(@PathVariable Integer id) {
-        Optional<StudentSearch> student = studentSearchService.getStudentByid(id);
+    public ResponseEntity<?> getStudentById(@PathVariable Integer id) {
+        Optional<StudentSearch> student = studentSearchService.getStudentById(id);
 
         if (student.isEmpty()) {
             // Student not found with the given ID
@@ -48,7 +44,7 @@ public class StudentSearchController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
         }
 
-        List<StudentSearch> students = studentSearchService.getStudentsByFirstNameIgnoreCase(firstName.trim());
+        List<StudentSearch> students = studentSearchService.getStudentsByFirstNameIgnoreCase(firstName);
 
         if (students.isEmpty()) {
             // First name not found in the table
@@ -62,7 +58,7 @@ public class StudentSearchController {
 
     @GetMapping("/search/lastName")
     public ResponseEntity<?> getStudentByLastName(@RequestParam("lastName") String lastName) {
-        List<StudentSearch> students = studentSearchService.getStudent(lastName);
+        List<StudentSearch> students = studentSearchService.getStudentsByLastNameIgnoreCase(lastName);
 
         if (students.isEmpty()) {
             // Last name not found in the table
@@ -76,7 +72,7 @@ public class StudentSearchController {
 
     @GetMapping("/search/username")
     public ResponseEntity<?> getStudentsByUsername(@RequestParam("userName") String userName) {
-        List<StudentSearch> students = studentSearchService.studentByUserName(userName);
+        List<StudentSearch> students = studentSearchService.getStudentsByUsernameIgnoreCase(userName);
 
         if (students.isEmpty()) {
             // Username not found in the table
@@ -90,7 +86,7 @@ public class StudentSearchController {
 
     @GetMapping("/search/name")
     public ResponseEntity<?> getStudentsByName(@RequestParam("name") String name) {
-        List<StudentSearch> students = studentSearchService.studentByname(name);
+        List<StudentSearch> students = studentSearchService.getStudentsByNameIgnoreCase(name);
 
         if (students.isEmpty()) {
             // Name not found in the table
