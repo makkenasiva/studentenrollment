@@ -29,6 +29,7 @@ CREATE TABLE users (
   email VARCHAR(255),
   institution_id INT,
   FOREIGN KEY (institution_id) REFERENCES institutions(id)
+
 );
 
 #new tables for parent and sibling
@@ -53,6 +54,28 @@ student_id int,
 FOREIGN KEY (student_id) REFERENCES student(id)
 );
 
+CREATE TABLE States (
+    id INT,
+    PRIMARY KEY (id),
+    statename VARCHAR(30)
+);
+
+CREATE TABLE city (
+    id INT,
+    PRIMARY KEY (id),
+    cityname VARCHAR(255),
+    stateid INT
+    FOREIGN KEY (stateid) REFERENCES States(id)
+);
+
+CREATE TABLE district (
+    id INT,
+    PRIMARY KEY (id),
+    districtname VARCHAR(255),
+    cityid INT
+    FOREIGN KEY (cityid) REFERENCES city(id)
+);
+
 CREATE TABLE AcademicInfo(
    id INT NOT NULL AUTO_INCREMENT,
    PRIMARY KEY (id),      
@@ -63,4 +86,3 @@ CREATE TABLE AcademicInfo(
    EntryLevel VARCHAR(100),
    Transfer VARCHAR(100)
 );
-
