@@ -64,7 +64,7 @@ CREATE TABLE city (
     id INT,
     PRIMARY KEY (id),
     cityname VARCHAR(255),
-    stateid INT
+    stateid INT,
     FOREIGN KEY (stateid) REFERENCES States(id)
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE district (
     id INT,
     PRIMARY KEY (id),
     districtname VARCHAR(255),
-    cityid INT
+    cityid INT,
     FOREIGN KEY (cityid) REFERENCES city(id)
 );
 
