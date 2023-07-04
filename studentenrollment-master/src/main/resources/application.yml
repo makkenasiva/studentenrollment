@@ -1,0 +1,33 @@
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/newdatabase
+    username: root
+    password: password
+  profiles:
+    active:
+      prod
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+---
+Spring:
+  message: Welcome to the test environment
+Server:
+  port: 8084
+
+---
+Spring:
+  message: Welcome to the dev environment
+Server:
+  port: 8085
+
+---
+Spring:
+  message: Welcome to the prod environment
+Server:
+  port: 8086
