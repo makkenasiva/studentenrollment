@@ -29,6 +29,7 @@ CREATE TABLE users (
   email VARCHAR(255),
   institution_id INT,
   FOREIGN KEY (institution_id) REFERENCES institutions(id)
+
 );
 
 #new tables for parent and sibling
@@ -52,7 +53,6 @@ CREATE TABLE Siblings (
 student_id int,
 FOREIGN KEY (student_id) REFERENCES student(id)
 );
-
 
 CREATE TABLE States (
     id INT,
