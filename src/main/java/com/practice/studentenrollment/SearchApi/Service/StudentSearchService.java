@@ -1,7 +1,7 @@
 package com.practice.studentenrollment.SearchApi.Service;
 
 import com.practice.studentenrollment.SearchApi.Model.StudentSearch;
-import com.practice.studentenrollment.SearchApi.Repository.StudentRepository;
+import com.practice.studentenrollment.SearchApi.Repository.StudentSearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,50 +11,33 @@ import java.util.Optional;
 @Service
 public class StudentSearchService {
     @Autowired
-    private StudentRepository studentSearchRepository;
+    private StudentSearchRepository studentSearchRepository;
 
     public StudentSearch addStudents(StudentSearch studentSearch) {
-        this.studentSearchRepository.save(studentSearch);
-        return studentSearch;
+        return studentSearchRepository.save(studentSearch);
     }
 
     public List<StudentSearch> studentSearchList() {
-        return this.studentSearchRepository.findAll();
+        return studentSearchRepository.findAll();
     }
 
-    public Optional<StudentSearch> getStudentByid(Integer studentid) {
-        return this.studentSearchRepository.findById(studentid);
+    public Optional<StudentSearch> getStudentById(Integer id) {
+        return studentSearchRepository.findById(id);
     }
 
-    public List<StudentSearch> getStudentsByFirstName(String firstName) {
-        List<StudentSearch> students = studentSearchRepository.findByFirstNameIgnoreCase(firstName);
-        if (students.isEmpty()) {
-            System.out.println("Invalid input: Name not found. Please try again.");
-        }
-        return students;
+    public List<StudentSearch> getStudentsByFirstNameIgnoreCase(String firstName) {
+        return studentSearchRepository.findByFirstNameIgnoreCase(firstName);
     }
 
-    public List<StudentSearch> getStudent(String lastName) {
-        List<StudentSearch> students = studentSearchRepository.findByLastNameIgnoreCase(lastName);
-        if (students.isEmpty()) {
-            System.out.println("Invalid input: Name not found. Please try again.");
-        }
-        return students;
+    public List<StudentSearch> getStudentsByLastNameIgnoreCase(String lastName) {
+        return studentSearchRepository.findByLastNameIgnoreCase(lastName);
     }
 
-    public List<StudentSearch> studentByUserName(String userName) {
-        List<StudentSearch> students = studentSearchRepository.findByUserNameIgnoreCase(userName);
-        if (students.isEmpty()) {
-            System.out.println("Invalid input: Name not found. Please try again.");
-        }
-        return students;
+    public List<StudentSearch> getStudentsByUsernameIgnoreCase(String userName) {
+        return studentSearchRepository.findByUserNameIgnoreCase(userName);
     }
 
-    public List<StudentSearch> studentByname(String name) {
-        List<StudentSearch> students = studentSearchRepository.findByNameIgnoreCase(name);
-        if (students.isEmpty()) {
-            System.out.println("Invalid input: Name not found. Please try again.");
-        }
-        return students;
+    public List<StudentSearch> getStudentsByNameIgnoreCase(String name) {
+        return studentSearchRepository.findByNameIgnoreCase(name);
     }
 }
