@@ -1,29 +1,54 @@
 package studentenrollment.StudentinfoApi;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.criteria.CriteriaBuilder;
+
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
+
 @Getter
 @Setter
 @Entity
-@Table(name="student")
+@Table(name = "student")
 public class StudentModel {
+
     @Id
     private Integer id;
-    private String first_name;
-    private String middle_name;
-    private String last_name;
-    private String parent_name;
-    private Date  date_of_birth;
+
+    @Column(name = "name", columnDefinition = "VARCHAR(255) DEFAULT 'Unknown'")
+    private String name;
+
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "middle_name")
+    private String middleName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "parent_name")
+    private String parentName;
+
+    @Column(name = "date_of_birth")
+    private String dateOfBirth;
+
+    @Column(name = "gender")
     private String gender;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "grade")
     private Integer grade;
+
+    @Column(name = "username")
     private String username;
-    private Long mobile_number;
 
+    @Column(name = "mobile_number")
+    private Long mobileNumber;
 
+    // Constructors, getters, and setters
 }
