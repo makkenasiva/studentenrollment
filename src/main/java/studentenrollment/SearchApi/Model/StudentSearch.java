@@ -18,7 +18,7 @@ public class StudentSearch {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String userName;
 
     public StudentSearch() {
