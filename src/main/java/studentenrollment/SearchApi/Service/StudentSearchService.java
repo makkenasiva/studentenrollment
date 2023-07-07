@@ -37,7 +37,4 @@ public class StudentSearchService {
         return studentSearchRepository.findByUserNameIgnoreCase(userName);
     }
 
-    public List<StudentSearch> getStudentsByNameIgnoreCase(String name) {
-        return studentSearchRepository.findByNameIgnoreCase(name);
-    }
 }

@@ -18,7 +18,7 @@ public class StudentService {
     public User addStudent(StudentModel student) {
         studentRepository.save(student);
         studentRepository.copyStudentDetails(student.getId());
-        studentRepository.setPassword(student.getId());
+//        studentRepository.setPassword(student.getId());
         return studentRepository.findUserById(student.getId());
     }
 }
