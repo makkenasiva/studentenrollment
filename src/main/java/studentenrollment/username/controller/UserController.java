@@ -23,8 +23,9 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.OK).body("Username already exists");
         } else {
             // Store the user
-            User newUser = userService.storeUser(username, null, null, null, null);
-            return ResponseEntity.ok("Username '" + newUser.getUsername() + "' is available and stored");
+            //User newUser = userService.storeUser(username, null, null, null, null);
+            return ResponseEntity.ok("Username '" + username + "' is available to use");
+
         }
     }
 }
