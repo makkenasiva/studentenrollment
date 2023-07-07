@@ -3,7 +3,7 @@ package studentenrollment.username.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user_model")
+@Table(name = "student")
 public class UserName {
 
     @Id
