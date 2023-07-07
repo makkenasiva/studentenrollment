@@ -1,14 +1,12 @@
 package com.practice.studentenrollment.InstitutionAPI;
 
+import com.practice.studentenrollment.InstitutionAPI.Institution;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/institutions")
@@ -26,10 +24,14 @@ public class InstitutionController {
         return ResponseEntity.ok(institutions);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Institution> getInstitutionById(@PathVariable Long id) {
-        Optional<Institution> optionalInstitution = institutionService.getInstitutionById(id);
-        return optionalInstitution.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
+    @GetMapping("/{institutionId}")
+    public ResponseEntity<?> getInstitutionById(@PathVariable("institutionId") Long institutionId) {
+        Institution institution = institutionService.getInstitutionByInstitutionId(institutionId);
 
+        if (institution.getName().equals("Institution not found")) {
+            return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Institution not found\"}");
+        } else {
+            return ResponseEntity.ok(institution);
+        }
+    }
 }

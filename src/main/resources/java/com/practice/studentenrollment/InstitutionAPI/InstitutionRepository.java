@@ -1,3 +1,4 @@
+
 package com.practice.studentenrollment.InstitutionAPI;
 
 import org.springframework.data.jpa.repository.JpaRepository;

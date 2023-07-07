@@ -19,9 +19,10 @@ public class StateService {
         return stateRepository.findAll();
     }
 
-    public Optional<State> getStateById(Long id) {
-        return stateRepository.findById(id);
+    public State getStateById(Long id) {
+        Optional<State> stateOptional = stateRepository.findById(id);
+
+        return stateOptional.orElse(null);
     }
 
-    // You can add other methods for additional business logic if needed.
 }

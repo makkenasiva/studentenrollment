@@ -53,4 +53,11 @@ public class Institution {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    public static Institution institutionNotFound() {
+        Institution notFound = new Institution();
+        notFound.setName("Institution not found");
+        return notFound;
+    }
+
+
 }

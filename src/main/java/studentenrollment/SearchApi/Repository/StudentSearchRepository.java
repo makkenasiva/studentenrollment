@@ -13,6 +13,4 @@ public interface StudentSearchRepository extends JpaRepository<StudentSearch, In
     List<StudentSearch> findByLastNameIgnoreCase(String lastName);
     List<StudentSearch> findByUserNameIgnoreCase(String userName);
 
-    @Query("SELECT s FROM StudentSearch s WHERE UPPER(s.name) LIKE CONCAT('%', UPPER(:name), '%')")
-    List<StudentSearch> findByNameIgnoreCase(String name);
 }

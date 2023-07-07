@@ -19,8 +19,13 @@ public class InstitutionService {
         return institutionRepository.findAll();
     }
 
-    public Optional<Institution> getInstitutionById(Long id) {
-        return institutionRepository.findById(id);
+    public Institution getInstitutionByInstitutionId(Long institutionId) {
+        Optional<Institution> institutionOptional = institutionRepository.findById(institutionId);
+        if (institutionOptional.isPresent()) {
+            return institutionOptional.get();
+        } else {
+            return Institution.institutionNotFound();
+        }
     }
 
 }
