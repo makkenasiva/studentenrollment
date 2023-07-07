@@ -1,4 +1,4 @@
-package com.practice.studentenrollment.StateAPI;
+package studentenrollment.StateAPI;
 
 import com.practice.studentenrollment.InstitutionAPI.Institution;
 import org.springframework.beans.factory.annotation.Autowired;
