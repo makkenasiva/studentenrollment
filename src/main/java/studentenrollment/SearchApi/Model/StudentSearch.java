@@ -9,9 +9,6 @@ public class StudentSearch {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    private String name;
-
     @Column(name = "first_name")
     private String firstName;
 
@@ -25,7 +22,6 @@ public class StudentSearch {
     }
 
     public StudentSearch(String name, String firstName, String lastName, Integer id, String userName) {
-        this.name = name;
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
@@ -38,14 +34,6 @@ public class StudentSearch {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getFirstName() {

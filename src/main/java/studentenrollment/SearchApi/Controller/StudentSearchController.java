@@ -88,17 +88,4 @@ public class StudentSearchController {
         return ResponseEntity.ok(students);
     }
 
-    @GetMapping("/search/name")
-    public ResponseEntity<?> getStudentsByName(@RequestParam("name") String name) {
-        List<StudentSearch> students = studentSearchService.getStudentsByNameIgnoreCase(name);
-
-        if (students.isEmpty()) {
-            // Name not found in the table
-            String errorMessage = "Invalid: No student found with the given name. Please try again.";
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
-        }
-
-        // Name found, return the list of students
-        return ResponseEntity.ok(students);
-    }
 }
