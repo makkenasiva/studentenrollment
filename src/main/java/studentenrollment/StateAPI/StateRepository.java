@@ -1,6 +1,5 @@
 package studentenrollment.StateAPI;
 
-import com.practice.studentenrollment.StateAPI.State;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
