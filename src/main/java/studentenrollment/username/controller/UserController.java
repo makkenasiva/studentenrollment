@@ -25,6 +25,7 @@ public class UserController {
             // Store the user
             //User newUser = userService.storeUser(username, null, null, null, null);
             return ResponseEntity.ok("Username '" + username + "' is available to use");
+
         }
     }
 }
