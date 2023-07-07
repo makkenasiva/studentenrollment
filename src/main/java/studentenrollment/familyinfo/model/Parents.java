@@ -19,8 +19,8 @@ public class Parents {
     @Id
     private int studentId;
 
-    public String fatherName;
-    public String motherName;
-    public int contactNumber;
+    private String fatherName;
+    private String motherName;
+    private Long contactNumber;
 
 }
