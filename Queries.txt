@@ -23,7 +23,7 @@ CREATE TABLE institutions (
   phone VARCHAR(20)
 );
 
-CREATE TABLE users (
+CREATE TABLE users(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -54,7 +54,6 @@ student_id int,
 FOREIGN KEY (student_id) REFERENCES student(id)
 );
 
-
 CREATE TABLE States (
     id INT,
     PRIMARY KEY (id),
@@ -65,7 +64,7 @@ CREATE TABLE city (
     id INT,
     PRIMARY KEY (id),
     cityname VARCHAR(255),
-    stateid INT
+    stateid INT,
     FOREIGN KEY (stateid) REFERENCES States(id)
 );
 
@@ -73,7 +72,7 @@ CREATE TABLE district (
     id INT,
     PRIMARY KEY (id),
     districtname VARCHAR(255),
-    cityid INT
+    cityid INT,
     FOREIGN KEY (cityid) REFERENCES city(id)
 );
 
