@@ -84,5 +84,7 @@ CREATE TABLE AcademicInfo(
    DistrictName VARCHAR(100),
    CityName VARCHAR(100),
    EntryLevel VARCHAR(100),
-   Transfer VARCHAR(100)
+   Transfer VARCHAR(100),
+   studentId INT,
+   FOREIGN KEY (studentId) REFERENCES Student(id)
 );
