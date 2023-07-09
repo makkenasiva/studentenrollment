@@ -19,9 +19,9 @@ public class Siblings {
     @Id
     private int studentId;
 
-    public String firstName;
-    public String middleName;
-    public String lastName;
-    public int contactNumber;
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private int contactNumber;
 
 }
