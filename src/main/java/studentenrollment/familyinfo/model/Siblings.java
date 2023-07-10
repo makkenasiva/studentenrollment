@@ -22,6 +22,6 @@ public class Siblings {
     private String firstName;
     private String middleName;
     private String lastName;
-    private int contactNumber;
+    private Long contactNumber;
 
 }
