@@ -1,12 +1,8 @@
 package studentenrollment.StudentinfoApi.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -16,17 +12,16 @@ public class StudentModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @JsonIgnore
   private Integer id;
 
   @Column(name = "first_name")
-  private String firstname;
+  private String first_name;
 
   @Column(name = "middle_name")
-  private String middlename;
+  private String middle_name;
 
   @Column(name = "last_name")
-  private String lastname;
+  private String lastName;
 
   @Column(name = "preferred_name")
   private String preferredName;
@@ -52,14 +47,8 @@ public class StudentModel {
   @Column(name = "mobile_number")
   private Long mobileNumber;
 
-
   @Column(name = "institution_id")
   private Integer institutionId;
-
-//  @OneToOne(mappedBy = "studentModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//  private User user;
-
-
 
 
 }

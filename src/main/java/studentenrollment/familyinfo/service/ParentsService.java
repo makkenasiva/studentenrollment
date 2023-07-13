@@ -5,22 +5,22 @@ import studentenrollment.familyinfo.repository.ParentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
 public class ParentsService {
-    @Autowired
     private ParentsRepository parentsRepository;
 
-    public Parents addNew(Parents library) {
-        this.parentsRepository.save(library);
-        return library;
+    @Autowired
+    public ParentsService(ParentsRepository parentsRepository) {
+        this.parentsRepository = parentsRepository;
     }
 
-    public List<Parents> getAllDetails(){
-        return this.parentsRepository.findAll();
-
+    public Parents saveParents(Parents parents) {
+        return parentsRepository.save(parents);
     }
 
-
+    public boolean checkIfStudentExists(int studentId) {
+        return parentsRepository.existsById(studentId);
+    }
 }

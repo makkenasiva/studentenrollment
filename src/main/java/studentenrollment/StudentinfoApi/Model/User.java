@@ -29,8 +29,4 @@ public class User {
     @Column(name = "student_id")
     private Integer studentId;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "student_id")
-//    private StudentModel studentModel;
-
 }

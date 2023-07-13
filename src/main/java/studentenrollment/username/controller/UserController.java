@@ -1,16 +1,18 @@
 package studentenrollment.username.controller;
+
+import studentenrollment.username.service.UserService;
+import studentenrollment.StudentinfoApi.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import studentenrollment.username.service.UserNameService;
 
 @RestController
 @RequestMapping("/api/v3/studentenrollment")
-public class UserNameController {
+public class UserController {
 
     @Autowired
-    private UserNameService userService;
+    private UserService userService;
 
 
 
@@ -20,10 +22,12 @@ public class UserNameController {
         boolean isUsernameExists = userService.isUsernameExists(username);
 
         if (isUsernameExists) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already exists");
+            return ResponseEntity.status(HttpStatus.OK).body("Username already exists");
         } else {
-            return ResponseEntity.ok("Username is available, you can create");
+            // Store the user
+            //User newUser = userService.storeUser(username, null, null, null, null);
+            return ResponseEntity.ok("Username '" + username + "' is available to use");
+
         }
     }
 }
-
