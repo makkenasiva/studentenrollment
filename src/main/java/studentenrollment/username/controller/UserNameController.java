@@ -12,6 +12,8 @@ public class UserNameController {
     @Autowired
     private UserNameService userService;
 
+
+
     @GetMapping("/users/availability")
     public ResponseEntity<String> checkUsernameAvailability(@RequestParam("username") String username) {
         // Check if the username already exists
