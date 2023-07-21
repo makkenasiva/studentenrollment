@@ -8,23 +8,23 @@ import jakarta.persistence.Table;
 @Table(name = "states")
 public class State {
     @Id
-    private Long id;
+    private Integer id;
     private String statename;
 
     public State() {
         // Default constructor is required for JPA
     }
 
-    public State(Long id, String statename) {
+    public State(Integer id, String statename) {
         this.id = id;
         this.statename = statename;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
