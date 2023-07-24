@@ -2,8 +2,8 @@ package studentenrollment.SearchApi.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import studentenrollment.Academicinfo.model.AcademicInfo;
-import studentenrollment.Academicinfo.repository.AcademicInfoRepository;
+import studentenrollment.Academicinfo.model.Academy;
+import studentenrollment.Academicinfo.repository.AcademicRepository;
 import studentenrollment.InstitutionAPI.Institution;
 import studentenrollment.InstitutionAPI.InstitutionRepository;
 import studentenrollment.SearchApi.Repository.StudentSearchRepository;
@@ -103,13 +103,13 @@ public class StudentSearchService {
     }
 
     @Autowired
-    private AcademicInfoRepository academicInfoRepository;
+    private AcademicRepository academicInfoRepository;
 
     private String getEntryLevelForStudent(int studentId) {
-        Optional<AcademicInfo> academicInfoOptional = academicInfoRepository.findById(studentId);
+        Optional<Academy> academicInfoOptional = academicInfoRepository.findById(studentId);
         if (academicInfoOptional.isPresent()) {
-            AcademicInfo academicInfo = academicInfoOptional.get();
-            return academicInfo.getEntryLevel();
+            Academy academicInfo = academicInfoOptional.get();
+            return academicInfo.getEntryOrTransfer();
         }
         return ""; // Return an appropriate value if no entry level is found
     }
