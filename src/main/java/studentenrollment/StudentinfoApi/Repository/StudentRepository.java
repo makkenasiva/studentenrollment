@@ -13,7 +13,7 @@ import studentenrollment.StudentinfoApi.Model.User;
 public interface StudentRepository extends JpaRepository<StudentModel, Integer> {
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO User(username,user_password,email,status,student_id) SELECT username,'Abcd123#', email,'Y', id FROM student WHERE id=:i",
+    @Query(value = "INSERT INTO User(username,user_password,email,status,student_id,institution_id) SELECT username,'Abcd123#', email,'Y', id,institution_id FROM student WHERE id=:i",
             nativeQuery = true)
     void copyStudentDetails(Integer i);
 

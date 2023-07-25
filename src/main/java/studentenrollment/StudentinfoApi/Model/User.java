@@ -16,9 +16,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private Set<UserRole> userRoles;
-
 
 
     @Column(name = "username")
@@ -35,5 +32,12 @@ public class User {
 
     @Column(name = "student_id")
     private Integer studentId;
+
+    private Integer role_id;
+
+    private String role_name;
+
+    @Column(name = "institution_id")
+    private Integer institutionId;
 
 }

@@ -52,5 +52,4 @@ public class StudentModel {
   @Column(name = "institution_id")
   private Integer institutionId;
 
-
 }
