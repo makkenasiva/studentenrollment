@@ -7,4 +7,5 @@ public interface Cityrepository extends JpaRepository<City,Integer> {
     boolean existsByCityname(String Cityname);
 
 
+    boolean existsByStateidAndId(Integer stateId, Integer cityId);
 }
