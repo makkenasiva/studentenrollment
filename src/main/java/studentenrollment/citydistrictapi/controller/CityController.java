@@ -35,7 +35,7 @@ public class CityController {
          }
      }*/
     @GetMapping("/cities/{id}")
-    public ResponseEntity<?> getCityById(@PathVariable int id) {
+    public ResponseEntity<?> getCityById(@PathVariable Integer id) {
         City city=cityService.getCityById(id);
         if (city == null) {
             return ResponseEntity.status(HttpStatus.OK).body("{\"message\":\"City not found\"}");

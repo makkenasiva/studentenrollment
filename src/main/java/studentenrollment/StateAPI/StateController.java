@@ -25,7 +25,7 @@ public class StateController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getInstitutionById(@PathVariable Long id) {
+    public ResponseEntity<?> getInstitutionById(@PathVariable Integer id) {
         State state = stateService.getStateById(id);
 
         if (state == null) {
