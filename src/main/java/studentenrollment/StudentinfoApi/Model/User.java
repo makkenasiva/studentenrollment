@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -12,7 +14,12 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Set<UserRole> userRoles;
+
+
 
     @Column(name = "username")
     private String username;

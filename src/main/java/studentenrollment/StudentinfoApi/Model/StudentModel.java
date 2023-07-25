@@ -1,5 +1,6 @@
 package studentenrollment.StudentinfoApi.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +13,7 @@ public class StudentModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @JsonIgnore
   private Integer id;
 
   @Column(name = "first_name")
