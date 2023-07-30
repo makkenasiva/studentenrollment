@@ -2,6 +2,7 @@ package studentenrollment.Academicinfo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import studentenrollment.Academicinfo.exception.AcademyServiceException;
 
 import studentenrollment.Academicinfo.model.Academy;
@@ -12,8 +13,10 @@ import studentenrollment.citydistrictapi.model.District;
 import studentenrollment.citydistrictapi.repository.Cityrepository;
 import studentenrollment.citydistrictapi.repository.Districtrepository;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Service
 public class AcademyService {
@@ -40,25 +43,29 @@ public class AcademyService {
             Integer cityId = academyInfo.getCityId();
             Integer districtId = academyInfo.getDistrictId();
 
+
             List<String> errors = new ArrayList<>();
 
             // Check if the stateId exists in the states table
             if (!stateRepository.existsById(stateId)) {
                 errors.add("Invalid stateId: " + stateId);
+
             }
 
-
+             // Check if the cityId exists in the city table
             if (!cityRepository.existsByStateidAndId(stateId, cityId)) {
-                errors.add("Invalid cityId for the given state");
-            }
 
+                errors.add("Invalid cityId for the given state");
+
+            }
 
             // Check if the districtId exists in the district table and belongs to the specified cityId
             if (!districtRepository.existsBycityidAndId(cityId, districtId)) {
-                errors.add("Invalid districtId for the given cityId");
+              errors.add("Invalid districtId for the given cityId");
             }
             if (!errors.isEmpty()) {
                 throw new AcademyServiceException("Invalid input data", errors);
+
             }
 
             return academyRepository.save(academyInfo);
