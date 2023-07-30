@@ -10,6 +10,7 @@ import studentenrollment.StudentinfoApi.Service.StudentService;
 
 @RestController
 @RequestMapping("/student")
+@CrossOrigin("*")
 public class StudentController {
     private final StudentService studentService;
     @Autowired
