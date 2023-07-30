@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import studentenrollment.Academicinfo.exception.AcademyServiceException;
 import studentenrollment.Academicinfo.model.Academy;
 import studentenrollment.Academicinfo.service.AcademyService;
 
@@ -18,12 +19,16 @@ public class AcademyController {
     }
 
     @PostMapping
-    public ResponseEntity<Academy> createAcademy(@RequestBody Academy academy) {
+    public ResponseEntity<?> createAcademy(@RequestBody Academy academy) {
         try {
             Academy savedAcademy = academyService.addNewSchool(academy);
             return ResponseEntity.status(HttpStatus.CREATED).body(savedAcademy);
+        } catch (AcademyServiceException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getErrors());
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+   
+
         }
     }
 }
