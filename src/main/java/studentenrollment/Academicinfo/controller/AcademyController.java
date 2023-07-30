@@ -27,6 +27,8 @@ public class AcademyController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getErrors());
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+   
+
         }
     }
 }
