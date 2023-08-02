@@ -50,6 +50,6 @@ public class StudentModel {
   private Long mobileNumber;
 
   @Column(name = "institution_id")
-  private Integer institutionId;
+  private Long institutionId;
 
 }
