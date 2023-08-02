@@ -43,7 +43,7 @@ public class DistrictController {
     }*/
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getDistrictById(@PathVariable int id) {
+    public ResponseEntity<?> getDistrictById(@PathVariable Integer id) {
         District district = districtService.getDistrictById(id);
 
         if (district == null) {

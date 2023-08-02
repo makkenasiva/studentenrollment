@@ -19,7 +19,7 @@ public class StateService {
         return stateRepository.findAll();
     }
 
-    public State getStateById(Long id) {
+    public State getStateById(Integer id) {
         Optional<State> stateOptional = stateRepository.findById(id);
 
         return stateOptional.orElse(null);
