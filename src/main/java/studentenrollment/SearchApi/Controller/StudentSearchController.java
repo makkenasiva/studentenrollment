@@ -13,7 +13,9 @@ import studentenrollment.SearchApi.pojo.SearchEntity;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/api/students")
+
 public class StudentSearchController {
     @Autowired
     private StudentSearchService studentSearchService;
