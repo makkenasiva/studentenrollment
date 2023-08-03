@@ -11,6 +11,10 @@ import studentenrollment.StudentinfoApi.Model.StudentModel;
 import studentenrollment.StudentinfoApi.Model.User;
 
 public interface StudentRepository extends JpaRepository<StudentModel, Integer> {
+
+    @Override
+    boolean existsById(Integer studentId);
+
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO User(username,user_password,email,status,student_id,institution_id) SELECT username,'Abcd123#', email,'Y', id,institution_id FROM student WHERE id=:i",

@@ -8,13 +8,15 @@ import studentenrollment.Academicinfo.exception.AcademyServiceException;
 import studentenrollment.Academicinfo.model.Academy;
 import studentenrollment.Academicinfo.repository.AcademicRepository;
 import studentenrollment.StateAPI.StateRepository;
-import studentenrollment.citydistrictapi.model.City;
-import studentenrollment.citydistrictapi.model.District;
+import studentenrollment.StudentinfoApi.Repository.StudentRepository;
 import studentenrollment.citydistrictapi.repository.Cityrepository;
 import studentenrollment.citydistrictapi.repository.Districtrepository;
 
 
 import java.util.ArrayList;
+
+import java.util.Collections;
+
 import java.util.List;
 
 
@@ -24,21 +26,28 @@ public class AcademyService {
     private final Cityrepository cityRepository;
     private final Districtrepository districtRepository;
     private final StateRepository stateRepository;
-
+private final StudentRepository studentRepository;
     @Autowired
     public AcademyService(AcademicRepository academyRepository,
                           Cityrepository cityRepository,
                           Districtrepository districtRepository,
-                          StateRepository stateRepository) {
+                          StateRepository stateRepository, StudentRepository studentRepository) {
         this.academyRepository = academyRepository;
         this.cityRepository = cityRepository;
         this.districtRepository = districtRepository;
         this.stateRepository = stateRepository;
+        this.studentRepository = studentRepository;
     }
 
     public Academy addNewSchool(Academy academyInfo) {
         String entryOrTransfer = academyInfo.getEntryOrTransfer();
         if (entryOrTransfer != null && (entryOrTransfer.equalsIgnoreCase("entry") || entryOrTransfer.equalsIgnoreCase("transfer"))) {
+            Integer studentId = academyInfo.getStudentId();
+
+            if (!studentRepository.existsById(studentId)) {
+                throw new AcademyServiceException("Invalid studentId: " + studentId + ". StudentId does not exist in the database.",
+                        Collections.singletonList("StudentId does not exist"));
+            }
             Integer stateId = academyInfo.getStateId();
             Integer cityId = academyInfo.getCityId();
             Integer districtId = academyInfo.getDistrictId();
@@ -64,7 +73,9 @@ public class AcademyService {
               errors.add("Invalid districtId for the given cityId");
             }
             if (!errors.isEmpty()) {
+
                 throw new AcademyServiceException("Invalid input data", errors);
+
 
             }
 
