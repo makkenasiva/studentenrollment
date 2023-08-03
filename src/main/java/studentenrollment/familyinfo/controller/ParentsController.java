@@ -7,28 +7,41 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
+
+
+
 @RestController
-@RequestMapping("/api/v1/family/parents")
+@RequestMapping("/parents")
+@CrossOrigin("*")
 public class ParentsController {
-    private ParentsService parentsService;
+    private final ParentsService parentsService;
 
     @Autowired
     public ParentsController(ParentsService parentsService) {
         this.parentsService = parentsService;
     }
 
-    @PostMapping("/parents")
-    public ResponseEntity<?> saveParents(@RequestBody Parents parents) {
-        boolean studentExists = parentsService.checkIfStudentExists(parents.getStudentId());
-        if (studentExists) {
-            Parents savedParents = parentsService.saveParents(parents);
-            return ResponseEntity.ok(savedParents);
-        } else {
-
-            return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Student Id not found\"}");
+    @PostMapping("/{studentId}")
+    public ResponseEntity<?> storeParentDetails(
+            @PathVariable int studentId,
+            @RequestParam String fatherName,
+            @RequestParam String motherName,
+            @RequestParam Long contactNumber
+    ) {
+        System.out.println("I'm reaching here");
+        try {
+            Parents updatedParents = parentsService.storeParentDetails(studentId, fatherName, motherName, contactNumber);
+            return ResponseEntity.ok(updatedParents);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.OK).body(e.getMessage());
         }
     }
 }
+
+
+
+

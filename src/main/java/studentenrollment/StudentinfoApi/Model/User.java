@@ -38,6 +38,8 @@ public class User {
     private String role_name;
 
     @Column(name = "institution_id")
-    private Integer institutionId;
+    private Long institutionId;
+
+
 
 }

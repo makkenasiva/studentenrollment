@@ -14,7 +14,9 @@ import studentenrollment.citydistrictapi.repository.Districtrepository;
 
 
 import java.util.ArrayList;
+
 import java.util.Collections;
+
 import java.util.List;
 
 
@@ -71,7 +73,9 @@ private final StudentRepository studentRepository;
               errors.add("Invalid districtId for the given cityId");
             }
             if (!errors.isEmpty()) {
-                throw new AcademyServiceException("Invalid input data",errors);
+
+                throw new AcademyServiceException("Invalid input data", errors);
+
 
             }
 

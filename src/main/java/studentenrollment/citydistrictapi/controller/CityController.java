@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/cities")
+@CrossOrigin("*")
 public class CityController {
     private final CityService cityService;
 

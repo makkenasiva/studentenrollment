@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/states")
+@CrossOrigin("*")
 public class StateController {
     private final StateService stateService;
 

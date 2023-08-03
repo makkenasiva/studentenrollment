@@ -3,32 +3,39 @@ package studentenrollment.familyinfo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import studentenrollment.familyinfo.model.Siblings;
 import studentenrollment.familyinfo.service.SiblingsService;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/family/siblings")
+@RequestMapping("/siblings")
+@CrossOrigin("*")
 public class SiblingsController {
-    private SiblingsService siblingsService;
+    private final SiblingsService siblingsService;
 
     @Autowired
     public SiblingsController(SiblingsService siblingsService) {
         this.siblingsService = siblingsService;
     }
 
-    @PostMapping("/siblings")
-    public ResponseEntity<?> saveSiblings(@RequestBody Siblings siblings) {
-        boolean studentExists = siblingsService.checkIfStudentExists(siblings.getStudentId());
-        if (studentExists) {
-            Siblings savedSiblings = siblingsService.saveSiblings(siblings);
-            return ResponseEntity.ok(savedSiblings);
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"Institution not found\"}");
+    @PostMapping("/{studentId}")
+    public ResponseEntity<?> storeSiblingDetails(
+            @PathVariable int studentId,
+            @RequestParam String firstName,
+            @RequestParam String middleName,
+            @RequestParam String lastName,
+            @RequestParam Long contactNumber
+    ) {
+        try {
+            Siblings updatedSibling = siblingsService.storeSiblingDetails(studentId, firstName, middleName, lastName, contactNumber);
+            return ResponseEntity.ok(updatedSibling);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.OK).body(e.getMessage());
         }
     }
 }
+
 
