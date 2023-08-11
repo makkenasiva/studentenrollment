@@ -10,6 +10,7 @@ import studentenrollment.Academicinfo.service.AcademyService;
 
 @RestController
 @RequestMapping("/academies")
+@CrossOrigin("*")
 public class AcademyController {
     private final AcademyService academyService;
 

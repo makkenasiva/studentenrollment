@@ -36,14 +36,14 @@ public class StudentService {
         this.roleRepository = roleRepository;
     }
 
-    public String addStudent(StudentModel student) {
+    public Integer addStudent(StudentModel student) {
         studentRepository.save(student);
         studentRepository.copyStudentDetails(student.getId());
-        UserRole userRole=new UserRole();
+        UserRole userRole = new UserRole();
         userRole.setUser_id(userRepo.findUserById(student.getId()));
         userRole.setRole_id(2);
         userRoleRepository.save(userRole);
-        return "Student details are saved successfully";
+        return student.getId(); // Return the student ID after saving
     }
     public void insertData( int role_id,String role_name) {
         String sql = "INSERT INTO role (role_id,role_name) VALUES (?, ?)";

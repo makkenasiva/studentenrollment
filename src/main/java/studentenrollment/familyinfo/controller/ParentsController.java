@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/parents")
+@CrossOrigin("*")
 public class ParentsController {
     private final ParentsService parentsService;
 
@@ -31,6 +32,7 @@ public class ParentsController {
             @RequestParam String motherName,
             @RequestParam Long contactNumber
     ) {
+        System.out.println("I'm reaching here");
         try {
             Parents updatedParents = parentsService.storeParentDetails(studentId, fatherName, motherName, contactNumber);
             return ResponseEntity.ok(updatedParents);

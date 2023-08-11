@@ -32,10 +32,9 @@ public class StudentController {
         this.studentService = studentService;
     }
     @PostMapping("/add")
-    public String addStudent(@RequestBody StudentModel student) {
-        return studentService.addStudent(student);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(newStudent);
-
+    public ResponseEntity<Integer> addStudent(@RequestBody StudentModel student) {
+        Integer studentId = studentService.addStudent(student);
+        return ResponseEntity.status(HttpStatus.CREATED).body(studentId);
     }
     @PostMapping("/add-roles")
     public ResponseEntity<String> addRoles() {
